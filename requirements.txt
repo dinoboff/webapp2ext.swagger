@@ -1,0 +1,2 @@
+coverage==3.7.1
+jsonschema==2.3.0

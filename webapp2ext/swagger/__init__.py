@@ -787,9 +787,8 @@ class ApiRequestHandler(webapp2.RequestHandler):
 
     def admin_required(self, msg=None, admin_msg=None):
         user = self.login_required(msg=msg)
-        # Every logged in user is an admin while the demo the app
-        # if not users.is_current_user_admin():
-        #     self.abort(403, admin_msg)
+        if not users.is_current_user_admin():
+            self.abort(403, admin_msg)
         return user
 
     def handle_exception(self, e, debug):
